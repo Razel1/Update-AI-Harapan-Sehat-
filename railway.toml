@@ -5,5 +5,4 @@ RAILPACK_NO_SPA = "1"
 PORT = "3000"
 
 [deploy]
-# Perintah ini bakal hapus karakter 'kotor' (sed) baru jalankan script-nya
-startCommand = "sed -i 's/\r$//' start.sh && bash start.sh"
+startCommand = "python3 api_klinik.py & node .output/server/index.mjs"
