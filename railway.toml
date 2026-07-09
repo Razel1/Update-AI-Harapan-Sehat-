@@ -1,0 +1,2 @@
+[deploy]
+startCommand = "python api_klinik.py & node .output/server/index.mjs"
