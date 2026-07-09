@@ -1,8 +1,2 @@
-[build]
-# Railpack bakal sadar ini bukan aplikasi SPA statis
-[variables]
-RAILPACK_NO_SPA = "1"
-PORT = "3000"
-
 [deploy]
 startCommand = "python3 api_klinik.py & node .output/server/index.mjs"
