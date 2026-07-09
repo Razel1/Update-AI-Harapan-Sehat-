@@ -1,5 +1,3 @@
-streamlit
-litellm
-groq
-uvicorn
 fastapi
+uvicorn
+litellm
