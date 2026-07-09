@@ -5,5 +5,5 @@ RAILPACK_NO_SPA = "1"
 PORT = "3000"
 
 [deploy]
-# Perintah buat jalanin server aplikasi kamu
-startCommand = "bash start.sh"
+# Perintah ini bakal hapus karakter 'kotor' (sed) baru jalankan script-nya
+startCommand = "sed -i 's/\r$//' start.sh && bash start.sh"
