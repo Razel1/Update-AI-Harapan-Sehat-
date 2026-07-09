@@ -1,0 +1,8 @@
+[build]
+# Railpack bakal sadar ini bukan aplikasi SPA statis
+[variables]
+RAILPACK_NO_SPA = "1"
+
+[deploy]
+# Perintah buat jalanin server aplikasi kamu
+startCommand = "node .output/server/index.mjs"
