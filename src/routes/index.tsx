@@ -331,7 +331,7 @@ function Index() {
             </div>
             <div className="space-y-2 text-xs text-slate-600">
               <p className="font-semibold text-slate-900 text-sm">Kontak</p>
-              <a href="tel:+62 821117698060" className="flex items-center gap-2 hover:text-teal-600">
+              <a href="tel:+62821117698060" className="flex items-center gap-2 hover:text-teal-600">
                 <Phone className="h-3.5 w-3.5" /> +62 821 1176 98060
               </a>
               <a href="mailto:halo@harapansehat.id" className="flex items-center gap-2 hover:text-teal-600">
