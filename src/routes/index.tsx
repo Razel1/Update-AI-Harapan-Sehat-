@@ -55,10 +55,10 @@ const QUICK_PROMPTS = [
 ];
 
 const SOCIALS = [
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com", color: "hover:text-pink-500" },
-  { icon: Facebook, label: "Facebook", href: "https://facebook.com", color: "hover:text-blue-600" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com", color: "hover:text-sky-500" },
-  { icon: Youtube, label: "YouTube", href: "https://youtube.com", color: "hover:text-red-500" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/klinik.hs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", color: "hover:text-pink-500" },
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/klinik.hs", color: "hover:text-blue-600" },
+  { icon: Twitter, label: "Twitter", href: "https://x.com/SehatHarapan?s=20", color: "hover:text-sky-500" },
+  { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/@klinikharapansehatcianjur", color: "hover:text-red-500" },
 ];
 
 function Avatar({ role }: { role: "user" | "doctor" }) {
