@@ -331,14 +331,14 @@ function Index() {
             </div>
             <div className="space-y-2 text-xs text-slate-600">
               <p className="font-semibold text-slate-900 text-sm">Kontak</p>
-              <a href="tel:+622112345678" className="flex items-center gap-2 hover:text-teal-600">
-                <Phone className="h-3.5 w-3.5" /> +62 21 1234 5678
+              <a href="tel:+62 821117698060" className="flex items-center gap-2 hover:text-teal-600">
+                <Phone className="h-3.5 w-3.5" /> +62 821 1176 98060
               </a>
               <a href="mailto:halo@harapansehat.id" className="flex items-center gap-2 hover:text-teal-600">
                 <Mail className="h-3.5 w-3.5" /> halo@harapansehat.id
               </a>
               <p className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5" /> Jakarta, Indonesia
+                <MapPin className="h-3.5 w-3.5" /> Cianjur, Indonesia
               </p>
             </div>
             <div>
