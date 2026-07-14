@@ -164,7 +164,7 @@ function Index() {
     setError(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/konsultasi", {
+      const res = await fetch("https://aiharapansehat.up.railway.app/konsultasi", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updated }),
