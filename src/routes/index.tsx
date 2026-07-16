@@ -77,42 +77,55 @@ function Avatar({ role }: { role: "user" | "doctor" }) {
   );
 }
 
-function MessageBubble({ message }: { message: ChatMessage }) {
+function MessageBubble({ message, onOptionClick, isLast }: { message: ChatMessage, onOptionClick?: (text: string) => void, isLast?: boolean }) {
   const isUser = message.role === "user";
+
+  // Trik Hacker: Memisahkan teks biasa dengan teks opsi (A., B., C., D.)
+  const lines = message.content.split('\n');
+  const options = lines.filter(line => /^[A-E]\.\s/.test(line.trim()));
+  const mainText = lines.filter(line => !/^[A-E]\.\s/.test(line.trim())).join('\n');
+
   return (
-    <div
-      className={`flex items-end gap-2 animate-fade-in ${
-        isUser ? "justify-end" : "justify-start"
-      }`}
-    >
-      {!isUser && <Avatar role="doctor" />}
-      <div
-        className={
-          "max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow-sm leading-relaxed transition-all " +
-          (isUser
-            ? "rounded-br-sm bg-gradient-to-br from-teal-500 to-emerald-600 text-white"
-            : "rounded-bl-sm bg-white text-slate-800 border border-slate-100")
-        }
-      >
-        <ReactMarkdown
-          components={{
-            p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
-            ul: ({ node, ...props }) => (
-              <ul className="list-disc ml-4 mb-2 space-y-1" {...props} />
-            ),
-            ol: ({ node, ...props }) => (
-              <ol className="list-decimal ml-4 mb-2 space-y-1" {...props} />
-            ),
-            li: ({ node, ...props }) => <li {...props} />,
-            strong: ({ node, ...props }) => (
-              <strong className="font-semibold" {...props} />
-            ),
-          }}
+    <div className={`flex flex-col w-full ${isUser ? "items-end" : "items-start"} animate-fade-in`}>
+      <div className={`flex items-end gap-2 w-full ${isUser ? "justify-end" : "justify-start"}`}>
+        {!isUser && <Avatar role="doctor" />}
+        <div
+          className={
+            "max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow-sm leading-relaxed transition-all " +
+            (isUser
+              ? "rounded-br-sm bg-gradient-to-br from-teal-500 to-emerald-600 text-white"
+              : "rounded-bl-sm bg-white text-slate-800 border border-slate-100")
+          }
         >
-          {message.content}
-        </ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+              ul: ({ node, ...props }) => <ul className="list-disc ml-4 mb-2 space-y-1" {...props} />,
+              ol: ({ node, ...props }) => <ol className="list-decimal ml-4 mb-2 space-y-1" {...props} />,
+              li: ({ node, ...props }) => <li {...props} />,
+              strong: ({ node, ...props }) => <strong className="font-semibold" {...props} />,
+            }}
+          >
+            {mainText}
+          </ReactMarkdown>
+        </div>
+        {isUser && <Avatar role="user" />}
       </div>
-      {isUser && <Avatar role="user" />}
+
+      {/* Merender Opsi menjadi Tombol Interaktif (Hanya di chat terakhir) */}
+      {!isUser && options.length > 0 && isLast && (
+        <div className="flex flex-col gap-2 mt-3 ml-11 max-w-[80%]">
+          {options.map((opt, i) => (
+            <button
+              key={i}
+              onClick={() => onOptionClick && onOptionClick(opt)}
+              className="text-left bg-white border-2 border-teal-100 text-teal-700 hover:bg-teal-50 hover:border-teal-400 px-4 py-2.5 rounded-xl text-sm font-medium shadow-sm transition-all hover:scale-[1.02]"
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
